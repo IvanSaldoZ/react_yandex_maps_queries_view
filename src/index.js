@@ -1,17 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+//Файл-точка входа в наше приложение
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//Импортируем сам React
+import React from 'react'
+//Импортируем метод render из библиотеки react-dom
+import {render} from 'react-dom'
+
+
+
+
+//Главный компонент приложения
+import App from "./components/App";
+render(<App/>, document.getElementById('root'))

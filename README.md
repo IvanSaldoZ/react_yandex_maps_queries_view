@@ -1,3 +1,48 @@
+## React Basics с сайта JavaScript
+
+https://learn.javascript.ru/screencast/react#react-components
+
+Как соединить Django Rest и React:
+https://tproger.ru/translations/django-react-webapp/
+
+### Краткое описание приложения
+
+Отображение списка статей.
+
+Структура: App -> ArticleList -> Article
+Структура: App -> YandexMapsQueriesList -> Article
+
+
+### Создание нового приложения
+
+Для создания паттерна приложения нужно использовать:
+
+`npm install -g create-react-app`
+
+`create-react-app new_app_name`
+
+### Обвить компоненты в папке node_modules
+
+`npm install -g npm-check-updates` - устанавливаем модуль для проверки обновления.
+
+`ncu -u --packageFile package.json` - запуск обновлений (источник: https://www.youtube.com/watch?v=1ccA_Jo6u-o) 
+
+
+### Bootstrap
+
+Для подключения Bootstrap-а нужно использовать команду
+
+`npm i -g yarn` - устанавливаем Yarn (аналог npm)
+
+`yarn add bootstrap` - добавляем Bootstrap
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
