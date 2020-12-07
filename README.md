@@ -1,14 +1,12 @@
-## React Basics с сайта JavaScript
+## 
 
-https://learn.javascript.ru/screencast/react#react-components
+React Basics с сайта JavaScript: https://learn.javascript.ru/screencast/react#react-components
 
-Как соединить Django Rest и React:
-https://tproger.ru/translations/django-react-webapp/
+Как соединить Django Rest и React: https://tproger.ru/translations/django-react-webapp/
 
 ### Краткое описание приложения
 
-Отображение списка статей.
-
+Основано на приложении: отображение списка статей.
 Структура: App -> ArticleList -> Article
 Структура: App -> YandexMapsQueriesList -> Article
 

@@ -1,20 +1,29 @@
 //Импортируем сам React
 import React, {PureComponent} from 'react'
-//Подгружаем компонент ArticleList
-//import ArticleList from "./ArticleList";
+//Подгружаем компонент YandexMapsQueriesList
 import YandexMapsQueriesList from "./YandexMapsQueriesList";
-//Импортируем список статей
-//import articles from "../fixtures"
 //Подключаем Bootrap
 import 'bootstrap/dist/css/bootstrap.css'
 
 
 //Основной класс программы
 class App extends PureComponent {
-    //Объявляем переменную состояния компонента
-    state = {
-        reverted: false
+    //Конструктор для инициализации свойств
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: [],
+            loaded: false,
+            placeholder: "Loading",
+            reverted: false,
+            queries: [],
+        };
     }
+
+    //Объявляем переменную состояния компонента
+    // state = {
+    //     reverted: false
+    //}
 
     //Метод для отображения компонента
     //articles.slice() - делает копию массива статей, чтобы НЕ передавать ее по ссылке
@@ -25,22 +34,43 @@ class App extends PureComponent {
             <div className="container">
                 <div className="jumbotron">
                     <h1 className="display-3">Список запросов адресов
-                        <button className="btn btn-primary" onClick={this.revert}>Revert</button>
+                        <button className="btn btn-primary" onClick={this.revert}>Обратный порядок</button>
                     </h1>
                 </div>
-                <YandexMapsQueriesList/>
+                <YandexMapsQueriesList queries={this.state.data}/>
             </div>
         )
     }
 
-    //                <ArticleList articles={this.state.reverted ? articles.slice().reverse() : articles }/>
+    //Подгружаем данные для отображения
+    componentDidMount() {
+        fetch("http://127.0.0.1:8000/api/v1/yandex_maps/query/get_all/"
+        )
+            .then(response => {
+                if (response.status > 400) {
+                    return this.setState(() => {
+                        return { placeholder: "Something went wrong!" };
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                this.setState(() => {
+                    return {
+                        data,
+                        loaded: true
+                    };
+                });
+            });
+    }
 
-    //Наш метод для изменения состояния
+    //Наш метод для изменения состояния - обратный порядок сортировки
     revert = () => {
         this.setState({
             reverted: !this.state.reverted
         })
     }
+
 
 
 }
